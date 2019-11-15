@@ -3,12 +3,16 @@ function! PackInit() abort
   packadd minpac
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
+  call minpac#add('vim-python/python-syntax')
   call minpac#add('chriskempson/base16-vim')
 endfunction
 
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
+
+" Enable all syntax highlighting in vim-python/python-syntax
+let g:python_highlight_all = 1
 
 " Colorschemes
 set termguicolors
