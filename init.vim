@@ -17,3 +17,20 @@ silent! colorscheme base16-material-darker
 
 set expandtab
 set hidden
+
+" Custom key mappings
+noremap H 0
+noremap J <C-D>
+noremap K <C-U>
+noremap L $
+noremap <Space> :
+
+nnoremap Y y$
+
+" NOP
+noremap $ <Nop>
+noremap 0 <Nop>
+noremap : <Nop>
+noremap ^ <Nop>
+noremap <C-D> <Nop>
+noremap <C-U> <Nop>
