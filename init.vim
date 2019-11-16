@@ -38,3 +38,6 @@ noremap : <Nop>
 noremap ^ <Nop>
 noremap <C-D> <Nop>
 noremap <C-U> <Nop>
+
+" Map ESC to clear search highlighting
+nnoremap <silent> <Esc> :nohlsearch<CR>
