@@ -41,3 +41,7 @@ noremap <C-U> <Nop>
 
 " Map ESC to clear search highlighting
 nnoremap <silent> <Esc> :nohlsearch<CR>
+
+" Map Ctrl-W to exit terminal mode and start windows command
+" Use Ctrl-C, <Esc>, <Space>, or other keys to cancel windows command and stay in normal mode
+tnoremap <C-W> <C-\><C-N><C-W>
