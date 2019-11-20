@@ -27,6 +27,7 @@ noremap H 0
 noremap J <C-D>
 noremap K <C-U>
 noremap L $
+noremap M J
 noremap <Space> :
 
 nnoremap Y y$
