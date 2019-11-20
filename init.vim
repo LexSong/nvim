@@ -21,6 +21,7 @@ silent! colorscheme base16-material-darker
 
 set expandtab
 set hidden
+set virtualedit=block
 
 " Custom key mappings
 noremap H 0
