@@ -19,6 +19,7 @@ set termguicolors
 silent! colorscheme desert
 silent! colorscheme base16-material-darker
 
+set clipboard=unnamedplus
 set expandtab
 set hidden
 set virtualedit=block
