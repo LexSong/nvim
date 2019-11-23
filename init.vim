@@ -1,9 +1,14 @@
 " Options
 set clipboard=unnamedplus
-set expandtab
 set hidden
 set termguicolors
 set virtualedit=block
+
+" Tab options
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 " Custom key mappings
 noremap H 0
