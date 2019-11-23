@@ -31,6 +31,7 @@ noremap K <C-U>
 noremap L $
 noremap M J
 noremap <Space> :
+noremap <C-W><Space> :
 
 nnoremap Y y$
 
@@ -47,4 +48,4 @@ nnoremap <silent> <Esc> :nohlsearch<CR>
 
 " Map Ctrl-W to exit terminal mode and start windows command
 " Use Ctrl-C, <Esc>, <Space>, or other keys to cancel windows command and stay in normal mode
-tnoremap <C-W> <C-\><C-N><C-W>
+tmap <C-W> <C-\><C-N><C-W>
