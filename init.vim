@@ -33,7 +33,7 @@ noremap <C-U> <Nop>
 nnoremap <silent> <Esc> :nohlsearch<CR>
 
 " Map Ctrl-W to exit terminal mode and start windows command
-" Use Ctrl-C, <Esc>, <Space>, or other keys to cancel windows command and stay in normal mode
+" Use Ctrl-C or <Esc> to cancel windows command and stay in normal mode
 tmap <C-W> <C-\><C-N><C-W>
 
 " Plugins
@@ -45,9 +45,9 @@ function! PackInit() abort
   call minpac#add('chriskempson/base16-vim')
 endfunction
 
-command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
+command! PackUpdate call PackInit() | call minpac#update()
 
 " Enable all syntax highlighting in vim-python/python-syntax
 let g:python_highlight_all = 1
