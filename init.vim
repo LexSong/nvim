@@ -1,5 +1,6 @@
 " Options
 set clipboard=unnamedplus
+set fileformats=unix,dos
 set hidden
 set termguicolors
 set virtualedit=block
