@@ -2,6 +2,7 @@
 set clipboard=unnamedplus
 set fileformats=unix,dos
 set hidden
+set nohlsearch
 set termguicolors
 set virtualedit=block
 
@@ -29,9 +30,6 @@ noremap : <Nop>
 noremap ^ <Nop>
 noremap <C-D> <Nop>
 noremap <C-U> <Nop>
-
-" Map ESC to clear search highlighting
-nnoremap <silent> <Esc> :nohlsearch<CR>
 
 " Map Ctrl-W to exit terminal mode and start windows command
 " Use Ctrl-C or <Esc> to cancel windows command and stay in normal mode
