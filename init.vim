@@ -2,6 +2,7 @@
 set clipboard=unnamedplus
 set fileformats=unix,dos
 set hidden
+set ignorecase
 set nohlsearch
 set termguicolors
 set virtualedit=block
