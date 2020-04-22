@@ -36,6 +36,11 @@ noremap <C-U> <Nop>
 " Use Ctrl-C or <Esc> to cancel windows command and stay in normal mode
 tmap <C-W> <C-\><C-N><C-W>
 
+" Unset $TERM in shell command if $TERM is vtpcon
+if $TERM == "vtpcon"
+  set shell=cmd.exe\ /C\ set\ TERM=&&cmd.exe
+endif
+
 " Plugins
 function! PackInit() abort
   packadd minpac
