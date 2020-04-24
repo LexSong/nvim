@@ -41,6 +41,14 @@ if $TERM == "vtpcon"
   set shell=cmd.exe\ /C\ set\ TERM=&&cmd.exe
 endif
 
+" Set python3 executable
+if has("win32")
+  let g:python3_host_prog = 'C:\Users\LexSong\scoop\apps\miniconda3\current\python.exe'
+  if !executable(g:python3_host_prog)
+    unlet g:python3_host_prog
+  endif
+endif
+
 " Plugins
 function! PackInit() abort
   packadd minpac
