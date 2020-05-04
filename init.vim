@@ -14,6 +14,7 @@ set softtabstop=4
 set tabstop=4
 
 " Custom key mappings
+noremap : ,
 noremap H 0
 noremap J <C-D>
 noremap K <C-U>
@@ -26,8 +27,8 @@ nnoremap Y y$
 
 " NOP
 noremap $ <Nop>
+noremap , <Nop>
 noremap 0 <Nop>
-noremap : <Nop>
 noremap ^ <Nop>
 noremap <C-D> <Nop>
 noremap <C-U> <Nop>
