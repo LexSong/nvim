@@ -86,4 +86,4 @@ autocmd ColorScheme * silent! call g:Base16hi("semshiSelected",        g:base16_
 
 " Colorschemes
 silent! colorscheme desert
-silent! colorscheme base16-material-darker
+silent! colorscheme base16-material
