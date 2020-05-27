@@ -1,4 +1,4 @@
-# My Neovim Setup
+# My Neovim Configs
 
 ### CD to `$XDG_CONFIG_HOME`
 
@@ -26,7 +26,7 @@ Remember to set `$XDG_CONFIG_HOME` to `%USERPROFILE%\.config` on Windows
 
 * Install the Python provider:
 
-    conda install pynvim
+    pip install pynvim
 
 * Update Remote Plugins
 
