@@ -58,6 +58,7 @@ function PackInit() abort
   packadd minpac
   call minpac#init()
   call minpac#add('chriskempson/base16-vim')
+  call minpac#add('dense-analysis/ale')
   call minpac#add('glacambre/firenvim', { 'type': 'opt', 'do': 'packadd firenvim | call firenvim#install(0)'})
   call minpac#add('k-takata/minpac', {'type': 'opt'})
   call minpac#add('numirias/semshi', {'type': 'opt'})
@@ -66,6 +67,9 @@ endfunction
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
 command! PackUpdate call PackInit() | call minpac#update()
+
+" ALE
+let g:ale_set_signs = 0
 
 " Firenvim
 if exists('g:started_by_firenvim')
