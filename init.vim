@@ -51,7 +51,7 @@ if has("win32")
 endif
 
 " Plugins
-function! PackInit() abort
+function PackInit() abort
   packadd minpac
   call minpac#init()
   call minpac#add('chriskempson/base16-vim')
