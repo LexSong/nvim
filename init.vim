@@ -70,6 +70,42 @@ command! PackUpdate call PackInit() | call minpac#update()
 
 " ALE
 let g:ale_set_signs = 0
+let g:ale_virtualtext_prefix = '▌'
+
+" Display ALE Virtual Text
+let g:ale_virtual_text_ns = nvim_create_namespace('ale_virtual_text')
+
+function DisplayALEVirtualText() abort
+  for l:buffer in keys(g:ale_buffer_info)
+    let l:buffer = str2nr(l:buffer)
+    call nvim_buf_clear_namespace(l:buffer, g:ale_virtual_text_ns, 0, -1)
+    let l:loclist = ale#engine#GetLoclist(l:buffer)
+    for l:err in reverse(copy(l:loclist))
+      let l:chunks = GetALEVirtualTextChunks(l:err)
+      call nvim_buf_set_virtual_text(l:buffer, g:ale_virtual_text_ns, l:err.lnum-1, l:chunks, {})
+    endfor
+  endfor
+endfunction
+
+function GetALEVirtualTextChunks(err) abort
+  let l:text = g:ale_virtualtext_prefix . substitute(a:err.text, '\r', '', 'g')
+  if a:err.type is# 'E'
+    let l:hl_group = 'ALEVirtualTextError'
+  elseif a:err.type is# 'W'
+    let l:hl_group = 'ALEVirtualTextWarning'
+  else
+    let l:hl_group = 'ALEVirtualTextInfo'
+  endif
+  return [[' ', ''], [l:text, l:hl_group]]
+endfunction
+
+augroup ale_virtual_text
+  autocmd!
+  autocmd User ALELintPost call DisplayALEVirtualText()
+  autocmd ColorScheme * silent! call g:Base16hi("ALEVirtualTextError",   g:base16_gui08, g:base16_gui01, g:base16_cterm08, g:base16_cterm01)
+  autocmd ColorScheme * silent! call g:Base16hi("ALEVirtualTextWarning", g:base16_gui0A, g:base16_gui01, g:base16_cterm0A, g:base16_cterm01)
+  autocmd ColorScheme * silent! call g:Base16hi("ALEVirtualTextInfo",    g:base16_gui0C, g:base16_gui01, g:base16_cterm0C, g:base16_cterm01)
+augroup END
 
 " Firenvim
 if exists('g:started_by_firenvim')
