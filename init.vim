@@ -4,6 +4,7 @@ set fileformats=unix,dos
 set hidden
 set ignorecase
 set nohlsearch
+set signcolumn=no
 set termguicolors
 set virtualedit=block
 
