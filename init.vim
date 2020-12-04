@@ -117,6 +117,24 @@ if exists('g:started_by_firenvim')
   autocmd UIEnter * set laststatus=0
 endif
 
+" lightline.vim
+function UpdateLightlineColorscheme() abort
+  if exists('g:base16_gui00')
+    runtime autoload/lightline/colorscheme/base16.vim
+    let g:lightline = {'colorscheme': 'base16'}
+  else
+    let g:lightline = {}
+  endif
+  call lightline#init()
+  call lightline#colorscheme()
+  call lightline#update()
+endfunction
+
+augroup lightline_colorscheme
+  autocmd!
+  autocmd ColorScheme * silent! call UpdateLightlineColorscheme()
+augroup END
+
 " Semshi
 if has('python3')
   packadd semshi
