@@ -63,6 +63,7 @@ function PackInit() abort
   call minpac#add('glacambre/firenvim', { 'type': 'opt', 'do': 'packadd firenvim | call firenvim#install(0)'})
   call minpac#add('itchyny/lightline.vim')
   call minpac#add('k-takata/minpac', {'type': 'opt'})
+  call minpac#add('maximbaz/lightline-ale')
   call minpac#add('numirias/semshi', {'type': 'opt'})
 endfunction
 
@@ -118,12 +119,34 @@ if exists('g:started_by_firenvim')
 endif
 
 " lightline.vim
+let g:lightline = {}
+
+let g:lightline.component_expand = {
+\ 'ale_checking': 'lightline#ale#checking',
+\ 'ale_errors':   'lightline#ale#errors',
+\ 'ale_warnings': 'lightline#ale#warnings',
+\ 'ale_infos':    'lightline#ale#infos',
+\}
+
+let g:lightline.component_type = {
+\ 'ale_errors':   'error',
+\ 'ale_warnings': 'warning',
+\ 'ale_infos':    'info',
+\}
+
+let g:lightline.active = {}
+let g:lightline.active.left = [
+\ ['mode', 'paste'],
+\ ['ale_checking', 'ale_errors', 'ale_warnings', 'ale_infos'],
+\ ['readonly', 'filename', 'modified'],
+\]
+
 function UpdateLightlineColorscheme() abort
   if exists('g:base16_gui00')
     runtime autoload/lightline/colorscheme/base16.vim
-    let g:lightline = {'colorscheme': 'base16'}
+    let g:lightline.colorscheme = 'base16'
   else
-    let g:lightline = {}
+    let g:lightline.colorscheme = 'default'
   endif
   call lightline#init()
   call lightline#colorscheme()
