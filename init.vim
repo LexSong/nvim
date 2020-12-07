@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " Options
 set clipboard=unnamedplus
 set fileformats=unix,dos
@@ -39,12 +41,12 @@ noremap <C-U> <Nop>
 tmap <C-W> <C-\><C-N><C-W>
 
 " Unset $TERM in shell command if $TERM is vtpcon
-if $TERM == "vtpcon"
+if $TERM ==# 'vtpcon'
   set shell=cmd.exe\ /C\ set\ TERM=&&cmd.exe
 endif
 
 " Set python3 executable
-if has("win32")
+if has('win32')
   let g:python3_host_prog = 'C:\Users\LexSong\scoop\apps\miniconda3\current\python.exe'
   if !executable(g:python3_host_prog)
     unlet g:python3_host_prog
@@ -74,25 +76,27 @@ if exists('g:started_by_firenvim')
 endif
 
 " Semshi
-if has("python3")
+if has('python3')
   packadd semshi
 endif
 
 let g:semshi#error_sign = v:false
 let g:semshi#mark_selected_nodes = 2
 
-" Semshi highlights
-autocmd ColorScheme * silent! call g:Base16hi("semshiLocal",           g:base16_gui08, "", g:base16_cterm08, "")
-autocmd ColorScheme * silent! call g:Base16hi("semshiGlobal",          g:base16_gui0A, "", g:base16_cterm0A, "")
-autocmd ColorScheme * silent! call g:Base16hi("semshiImported",        g:base16_gui0A, "", g:base16_cterm0A, "")
-autocmd ColorScheme * silent! call g:Base16hi("semshiParameter",       g:base16_gui08, "", g:base16_cterm08, "")
-autocmd ColorScheme * silent! call g:Base16hi("semshiParameterUnused", g:base16_gui08, "", g:base16_cterm08, "", "underline")
-autocmd ColorScheme * silent! call g:Base16hi("semshiFree",            g:base16_gui08, "", g:base16_cterm08, "")
-autocmd ColorScheme * silent! call g:Base16hi("semshiBuiltin",         g:base16_gui0E, "", g:base16_cterm0E, "")
-autocmd ColorScheme * silent! call g:Base16hi("semshiAttribute",       g:base16_gui0D, "", g:base16_cterm0D, "")
-autocmd ColorScheme * silent! call g:Base16hi("semshiSelf",            g:base16_gui0F, "", g:base16_cterm0F, "")
-autocmd ColorScheme * silent! call g:Base16hi("semshiUnresolved",      g:base16_gui0A, "", g:base16_cterm0A, "", "underline")
-autocmd ColorScheme * silent! call g:Base16hi("semshiSelected",        g:base16_gui0C, "", g:base16_cterm0C, "", "underline")
+augroup semshi_highlights
+  autocmd!
+  autocmd ColorScheme * silent! call g:Base16hi("semshiLocal",           g:base16_gui08, "", g:base16_cterm08, "")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiGlobal",          g:base16_gui0A, "", g:base16_cterm0A, "")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiImported",        g:base16_gui0A, "", g:base16_cterm0A, "")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiParameter",       g:base16_gui08, "", g:base16_cterm08, "")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiParameterUnused", g:base16_gui08, "", g:base16_cterm08, "", "underline")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiFree",            g:base16_gui08, "", g:base16_cterm08, "")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiBuiltin",         g:base16_gui0E, "", g:base16_cterm0E, "")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiAttribute",       g:base16_gui0D, "", g:base16_cterm0D, "")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiSelf",            g:base16_gui0F, "", g:base16_cterm0F, "")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiUnresolved",      g:base16_gui0A, "", g:base16_cterm0A, "", "underline")
+  autocmd ColorScheme * silent! call g:Base16hi("semshiSelected",        g:base16_gui0C, "", g:base16_cterm0C, "", "underline")
+augroup END
 
 " Colorschemes
 silent! colorscheme desert
