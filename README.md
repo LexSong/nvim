@@ -2,7 +2,7 @@
 
 ### CD to `$XDG_CONFIG_HOME`
 
-Remember to set `$XDG_CONFIG_HOME` to `%USERPROFILE%\.config` on Windows
+Remember to set `$XDG_CONFIG_HOME` to `%USERPROFILE%\.config` on Windows.
 
     # Windows
     cd /d %XDG_CONFIG_HOME%
