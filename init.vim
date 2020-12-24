@@ -64,7 +64,7 @@ function PackInit() abort
   call minpac#add('itchyny/lightline.vim')
   call minpac#add('k-takata/minpac', {'type': 'opt'})
   call minpac#add('maximbaz/lightline-ale')
-  call minpac#add('numirias/semshi', {'type': 'opt'})
+  call minpac#add('numirias/semshi', {'type': 'opt', 'do': 'UpdateRemotePlugins'})
 endfunction
 
 command! PackClean  call PackInit() | call minpac#clean()

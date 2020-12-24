@@ -24,10 +24,4 @@ Remember to set `$XDG_CONFIG_HOME` to `%USERPROFILE%\.config` on Windows.
 
 ### Install Semshi
 
-* Install the Python provider:
-
-    pip install pynvim
-
-* Update Remote Plugins
-
-    nvim +UpdateRemotePlugins
+See https://github.com/numirias/semshi#installation for more details.
