@@ -48,8 +48,9 @@ endif
 
 " Set python3 executable
 if has('win32')
-  let g:python3_host_prog = 'C:\Users\LexSong\scoop\apps\miniconda3\current\python.exe'
+  let g:python3_host_prog = 'C:\Users\LexSong\scoop\apps\miniconda3\current\envs\neovim\python.exe'
   if !executable(g:python3_host_prog)
+    echoerr "Can't find Conda environment for Neovim"
     unlet g:python3_host_prog
   endif
 endif

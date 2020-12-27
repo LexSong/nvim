@@ -22,6 +22,10 @@ Remember to set `$XDG_CONFIG_HOME` to `%USERPROFILE%\.config` on Windows.
 
     nvim +PackUpdate
 
+### Create a Conda environment for Neovim
+
+    conda env create -f environment.yml
+
 ### Install Semshi
 
 See https://github.com/numirias/semshi#installation for more details.
