@@ -1,3 +1,4 @@
+---
 name: neovim
 channels:
   - defaults
@@ -5,4 +6,4 @@ dependencies:
   - greenlet
   - pip
   - pip:
-    - pynvim
+      - pynvim
