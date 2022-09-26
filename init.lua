@@ -51,6 +51,8 @@ end
 -- Plugins
 require("paq")({
 	"RRethy/nvim-base16",
+	"jose-elias-alvarez/null-ls.nvim",
+	"nvim-lua/plenary.nvim",
 	"nvim-lualine/lualine.nvim",
 	"savq/paq-nvim",
 })
@@ -62,6 +64,18 @@ require("lualine").setup({
 		theme = "base16",
 		component_separators = { left = "|", right = "|" },
 		section_separators = { left = "", right = "" },
+	},
+})
+
+-- null-ls.nvim
+require("null-ls").setup({
+	sources = {
+		require("null-ls").builtins.diagnostics.flake8,
+		require("null-ls").builtins.diagnostics.yamllint,
+		require("null-ls").builtins.formatting.black,
+		require("null-ls").builtins.formatting.prettier,
+		require("null-ls").builtins.formatting.reorder_python_imports,
+		require("null-ls").builtins.formatting.stylua,
 	},
 })
 
