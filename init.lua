@@ -27,3 +27,18 @@ vim.keymap.set("", "L", "I")
 -- Map Ctrl-W to exit terminal mode and start a window command.
 -- Use Ctrl-C or <Esc> to cancel the window command and stay in normal mode.
 vim.keymap.set("t", "<C-W>", "<C-\\><C-N><C-W>", { remap = true })
+
+-- Options
+vim.opt.clipboard = "unnamedplus"
+vim.opt.completeslash = "slash"
+vim.opt.fileformats = { "unix", "dos" }
+vim.opt.ignorecase = true
+vim.opt.signcolumn = "no"
+vim.opt.termguicolors = true
+vim.opt.virtualedit = "block"
+
+-- Tab options
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
