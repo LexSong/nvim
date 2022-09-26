@@ -47,3 +47,12 @@ vim.opt.tabstop = 4
 if vim.fn.has("win32") then
 	vim.api.nvim_set_var("python3_host_prog", "C:/Users/LexSong/mambaforge/python.exe")
 end
+
+-- Plugins
+require("paq")({
+	"RRethy/nvim-base16",
+	"savq/paq-nvim",
+})
+
+-- Colorschemes
+vim.cmd("colorscheme base16-material")

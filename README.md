@@ -20,3 +20,12 @@ Remember to set `$XDG_CONFIG_HOME` to `%USERPROFILE%\.config` on Windows.
 
 Run `:checkhealth` to see if it works correctly.
 See `:h provider-python` for more details.
+
+### Install Paq
+
+    # Windows
+    git clone https://github.com/savq/paq-nvim.git %LOCALAPPDATA%\nvim-data\site\pack\paqs\start\paq-nvim
+
+### Install plugins with Paq
+
+    :PaqSync
