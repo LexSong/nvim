@@ -51,7 +51,18 @@ end
 -- Plugins
 require("paq")({
 	"RRethy/nvim-base16",
+	"nvim-lualine/lualine.nvim",
 	"savq/paq-nvim",
+})
+
+-- lualine.nvim
+require("lualine").setup({
+	options = {
+		icons_enabled = false,
+		theme = "base16",
+		component_separators = { left = "|", right = "|" },
+		section_separators = { left = "", right = "" },
+	},
 })
 
 -- Colorschemes
