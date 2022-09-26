@@ -23,3 +23,7 @@ vim.keymap.set("", "H", "N")
 vim.keymap.set("", "J", "E")
 vim.keymap.set("", "K", "J")
 vim.keymap.set("", "L", "I")
+
+-- Map Ctrl-W to exit terminal mode and start a window command.
+-- Use Ctrl-C or <Esc> to cancel the window command and stay in normal mode.
+vim.keymap.set("t", "<C-W>", "<C-\\><C-N><C-W>", { remap = true })
