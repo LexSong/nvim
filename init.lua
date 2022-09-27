@@ -46,6 +46,20 @@ vim.opt.tabstop = 4
 -- Diagnostics
 vim.diagnostic.config({ virtual_text = { spacing = 1, prefix = "█" } })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		local loaded, base16 = pcall(require, "base16-colorscheme")
+		if loaded and base16.colors then
+			local c = base16.colors
+			vim.api.nvim_set_hl(0, "DiagnosticError", { fg = c.base08, bg = c.base01 })
+			vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = c.base0A, bg = c.base01 })
+			vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = c.base0C, bg = c.base01 })
+			vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = c.base0E, bg = c.base01 })
+		end
+	end,
+})
+
 -- Set the python3 executable
 if vim.fn.has("win32") then
 	vim.api.nvim_set_var("python3_host_prog", "C:/Users/LexSong/mambaforge/python.exe")
