@@ -55,6 +55,7 @@ end
 require("paq")({
 	"RRethy/nvim-base16",
 	"jose-elias-alvarez/null-ls.nvim",
+	"neovim/nvim-lspconfig",
 	"numirias/semshi",
 	"nvim-lua/plenary.nvim",
 	"nvim-lualine/lualine.nvim",
@@ -81,6 +82,14 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.reorder_python_imports,
 		require("null-ls").builtins.formatting.stylua,
 	},
+})
+
+-- nvim-lspconfig
+require("lspconfig").jedi_language_server.setup({
+	on_attach = function(client)
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
+	end,
 })
 
 -- Semshi
