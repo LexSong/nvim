@@ -29,3 +29,7 @@ See `:h provider-python` for more details.
 ### Install plugins with Paq
 
     :PaqSync
+
+### Update remote plugins (for Semshi)
+
+    :UpdateRemotePlugins

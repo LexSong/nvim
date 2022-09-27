@@ -69,6 +69,7 @@ end
 require("paq")({
 	"RRethy/nvim-base16",
 	"jose-elias-alvarez/null-ls.nvim",
+	"numirias/semshi",
 	"nvim-lua/plenary.nvim",
 	"nvim-lualine/lualine.nvim",
 	"savq/paq-nvim",
@@ -94,6 +95,32 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.reorder_python_imports,
 		require("null-ls").builtins.formatting.stylua,
 	},
+})
+
+-- Semshi
+vim.api.nvim_set_var("semshi#always_update_all_highlights", true)
+vim.api.nvim_set_var("semshi#error_sign", false)
+vim.api.nvim_set_var("semshi#mark_selected_nodes", 2)
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    callback = function()
+        local loaded, base16 = pcall(require, "base16-colorscheme")
+        if loaded and base16.colors then
+            local c = base16.colors
+            vim.api.nvim_set_hl(0, "semshiLocal", { fg = c.base08 })
+            vim.api.nvim_set_hl(0, "semshiGlobal", { fg = c.base0A })
+            vim.api.nvim_set_hl(0, "semshiImported", { fg = c.base0A })
+            vim.api.nvim_set_hl(0, "semshiParameter", { fg = c.base08 })
+            vim.api.nvim_set_hl(0, "semshiParameterUnused", { fg = c.base08, underline = 1 })
+            vim.api.nvim_set_hl(0, "semshiFree", { fg = c.base08 })
+            vim.api.nvim_set_hl(0, "semshiBuiltin", { fg = c.base0E })
+            vim.api.nvim_set_hl(0, "semshiAttribute", { fg = c.base0D })
+            vim.api.nvim_set_hl(0, "semshiSelf", { fg = c.base0F })
+            vim.api.nvim_set_hl(0, "semshiUnresolved", { fg = c.base0A, underline = 1 })
+            vim.api.nvim_set_hl(0, "semshiSelected", { fg = c.base0C, underline = 1 })
+        end
+    end,
 })
 
 -- Colorschemes
