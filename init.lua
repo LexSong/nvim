@@ -34,6 +34,7 @@ vim.keymap.set("t", "<C-W>", "<C-\\><C-N><C-W>", { remap = true })
 
 -- Options
 vim.opt.clipboard = "unnamedplus"
+vim.opt.completeopt = { "menu" }
 vim.opt.completeslash = "slash"
 vim.opt.fileformats = { "unix", "dos" }
 vim.opt.ignorecase = true
@@ -83,9 +84,10 @@ require("null-ls").setup({
 
 -- nvim-lspconfig
 require("lspconfig").jedi_language_server.setup({
-	on_attach = function(client)
+	on_attach = function(client, buffer)
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
+		vim.api.nvim_buf_set_option(buffer, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	end,
 })
 
