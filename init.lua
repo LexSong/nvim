@@ -62,16 +62,6 @@ require("paq")({
 	"savq/paq-nvim",
 })
 
--- lualine.nvim
-require("lualine").setup({
-	options = {
-		icons_enabled = false,
-		theme = "base16",
-		component_separators = { left = "|", right = "|" },
-		section_separators = { left = "", right = "" },
-	},
-})
-
 -- null-ls.nvim
 require("null-ls").setup({
 	sources = {
@@ -90,6 +80,16 @@ require("lspconfig").jedi_language_server.setup({
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end,
+})
+
+-- lualine.nvim
+require("lualine").setup({
+	options = {
+		icons_enabled = false,
+		theme = "base16",
+		component_separators = { left = "|", right = "|" },
+		section_separators = { left = "", right = "" },
+	},
 })
 
 -- Semshi
