@@ -78,15 +78,13 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.stylua,
 	},
 	on_attach = function(client, buffer)
-		vim.keymap.set("", "==", vim.lsp.buf.formatting, { buffer = buffer })
+		vim.keymap.set("", "==", vim.lsp.buf.format, { buffer = buffer })
 	end,
 })
 
 -- nvim-lspconfig
 require("lspconfig").jedi_language_server.setup({
 	on_attach = function(client, buffer)
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
 		vim.api.nvim_buf_set_option(buffer, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	end,
 })
