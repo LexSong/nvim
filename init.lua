@@ -86,7 +86,6 @@ require("null-ls").setup({
 -- nvim-lspconfig
 require("lspconfig").jedi_language_server.setup({
 	on_attach = function(client, buffer)
-		vim.api.nvim_buf_set_option(buffer, "omnifunc", "v:lua.vim.lsp.omnifunc")
 		vim.keymap.set("", ",", vim.lsp.buf.hover, { buffer = buffer })
 	end,
 })
