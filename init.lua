@@ -77,6 +77,7 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.prettier,
 		require("null-ls").builtins.formatting.reorder_python_imports,
 		require("null-ls").builtins.formatting.stylua,
+		require("null-ls").builtins.formatting.taplo,
 	},
 	on_attach = function(client, buffer)
 		vim.keymap.set("", "==", vim.lsp.buf.format, { buffer = buffer })
