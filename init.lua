@@ -29,6 +29,9 @@ vim.keymap.set("", ",", "<NOP>")
 vim.keymap.set("", "=", "<NOP>")
 vim.keymap.set("", "==", "<NOP>")
 
+-- Ctrl-Z is broken on Windows
+vim.keymap.set("", "<C-Z>", "<NOP>")
+
 -- Map Ctrl-W to exit terminal mode and start a window command.
 -- Use Ctrl-C or <Esc> to cancel the window command and stay in normal mode.
 vim.keymap.set("t", "<C-W>", "<C-\\><C-N><C-W>", { remap = true })
