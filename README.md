@@ -14,9 +14,9 @@ Remember to set `$XDG_CONFIG_HOME` to `%USERPROFILE%\.config` on Windows.
 
     git clone https://github.com/LexSong/nvim.git nvim
 
-### Create the micromamba environment for Python integration
+### Create a mamba environment for Python integration
 
-    micromamba create -n pynvim pynvim
+    mamba create -n pynvim pynvim
 
 Run `:checkhealth` to see if it works correctly.
 See `:h provider-python` for more details.
