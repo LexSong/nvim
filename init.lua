@@ -78,7 +78,9 @@ require("null-ls").setup({
 		require("null-ls").builtins.diagnostics.yamllint,
 		require("null-ls").builtins.formatting.black,
 		require("null-ls").builtins.formatting.prettier,
-		require("null-ls").builtins.formatting.reorder_python_imports,
+		require("null-ls").builtins.formatting.reorder_python_imports.with({
+			extra_args = { "--application-directories=.:src" },
+		}),
 		require("null-ls").builtins.formatting.stylua,
 		require("null-ls").builtins.formatting.taplo,
 	},
