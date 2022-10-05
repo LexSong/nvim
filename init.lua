@@ -43,7 +43,9 @@ vim.opt.completeslash = "slash"
 vim.opt.fileformats = { "unix", "dos" }
 vim.opt.ignorecase = true
 vim.opt.signcolumn = "no"
+vim.opt.swapfile = false
 vim.opt.termguicolors = true
+vim.opt.undofile = true
 vim.opt.virtualedit = "block"
 
 -- Tab options
