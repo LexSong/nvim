@@ -24,6 +24,12 @@ vim.keymap.set("", "J", "E")
 vim.keymap.set("", "K", "J")
 vim.keymap.set("", "L", "I")
 
+-- Map <C-E> to <C-P>
+vim.keymap.set("", "<C-E>", "<C-P>")
+vim.keymap.set("", "<C-P>", "<NOP>")
+vim.keymap.set("!", "<C-E>", "<C-P>")
+vim.keymap.set("!", "<C-P>", "<NOP>")
+
 -- NOP
 vim.keymap.set("", ",", "<NOP>")
 vim.keymap.set("", "=", "<NOP>")
