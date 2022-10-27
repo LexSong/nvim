@@ -5,3 +5,6 @@ let b:did_ftplugin = 1
 set iminsert=1
 lnoremap <buffer> ; :
 lnoremap <buffer> : ;
+
+" For vim-commentary
+setlocal commentstring=#\ %s

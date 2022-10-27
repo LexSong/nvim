@@ -77,6 +77,7 @@ require("paq")({
 	"nvim-lua/plenary.nvim",
 	"nvim-lualine/lualine.nvim",
 	"savq/paq-nvim",
+	"tpope/vim-commentary",
 })
 
 -- null-ls.nvim
