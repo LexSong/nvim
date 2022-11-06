@@ -32,8 +32,6 @@ vim.keymap.set("!", "<C-P>", "<NOP>")
 
 -- NOP
 vim.keymap.set("", ",", "<NOP>")
-vim.keymap.set("", "=", "<NOP>")
-vim.keymap.set("", "==", "<NOP>")
 
 -- Ctrl-Z is broken on Windows
 vim.keymap.set("", "<C-Z>", "<NOP>")
@@ -94,7 +92,7 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.taplo,
 	},
 	on_attach = function(client, buffer)
-		vim.keymap.set("", "==", vim.lsp.buf.format, { buffer = buffer })
+		vim.keymap.set("", "_", vim.lsp.buf.format, { buffer = buffer })
 	end,
 })
 
