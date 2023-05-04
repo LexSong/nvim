@@ -1,9 +1,15 @@
--- Key mappings
+-- Custom key mappings
 vim.keymap.set("", ":", ",")
 vim.keymap.set("", "<Space>", ":")
 vim.keymap.set("", "<C-W><Space>", ":")
 vim.keymap.set("", "<PageDown>", "<C-D>")
 vim.keymap.set("", "<PageUp>", "<C-U>")
+
+vim.keymap.set("", "H", "0")
+vim.keymap.set("", "J", "<C-D>")
+vim.keymap.set("", "K", "<C-U>")
+vim.keymap.set("", "L", "$")
+vim.keymap.set("", "M", "J")
 
 -- NOP
 vim.keymap.set("", ",", "<NOP>")
