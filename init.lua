@@ -58,6 +58,12 @@ require("paq")({
 	"nvim-lualine/lualine.nvim",
 	"savq/paq-nvim",
 	"tpope/vim-commentary",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			vim.cmd("TSUpdate")
+		end,
+	},
 })
 
 -- null-ls.nvim
@@ -92,6 +98,29 @@ require("lualine").setup({
 		theme = "base16",
 		component_separators = { left = "|", right = "|" },
 		section_separators = { left = "", right = "" },
+	},
+})
+
+-- treesitter
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"c",
+		"json",
+		"lua",
+		"markdown",
+		"markdown_inline",
+		"python",
+		"query",
+		"toml",
+		"vim",
+		"vimdoc",
+		"yaml",
+	},
+	sync_install = true,
+	auto_install = true,
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
 	},
 })
 
