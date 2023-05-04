@@ -12,7 +12,9 @@ vim.keymap.set("", "L", "$")
 vim.keymap.set("", "M", "J")
 
 -- NOP
+vim.keymap.set("", "$", "<NOP>")
 vim.keymap.set("", ",", "<NOP>")
+vim.keymap.set("", "0", "<NOP>")
 
 -- Ctrl-Z is broken on Windows
 vim.keymap.set("", "<C-Z>", "<NOP>")
@@ -72,7 +74,7 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.taplo,
 	},
 	on_attach = function(client, buffer)
-		vim.keymap.set("", "_", vim.lsp.buf.format, { buffer = buffer })
+		vim.keymap.set("", "0", vim.lsp.buf.format, { buffer = buffer })
 	end,
 })
 
