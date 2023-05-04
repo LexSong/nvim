@@ -1,35 +1,49 @@
-# My Neovim Configs
+# My Neovim Config
 
-### CD to `$XDG_CONFIG_HOME`
+### Clone the Config
 
-Remember to set `$XDG_CONFIG_HOME` to `%USERPROFILE%\.config` on Windows.
+1. Open the terminal and change to the default config directory:
 
-    # Windows
-    cd /d %XDG_CONFIG_HOME%
+   ```
+   # Unix
+   cd ~/.config
 
-    # Linux
-    cd $XDG_CONFIG_HOME
+   # Windows
+   cd /d %USERPROFILE%\AppData\Local
+   ```
 
-### Clone this repository
+2. Clone this repository:
 
-    git clone https://github.com/LexSong/nvim.git nvim
+   ```
+   git clone https://github.com/LexSong/nvim.git nvim
+   ```
 
-### Create a mamba environment for Python integration
+### Install Paq and Plugins
 
-    mamba create -n pynvim pynvim
+1. Install Paq:
 
-Run `:checkhealth` to see if it works correctly.
-See `:h provider-python` for more details.
+   See https://github.com/savq/paq-nvim#installation.
 
-### Install Paq
+   ```
+   # Unix
+   cd ~/.local/share
+   git clone https://github.com/savq/paq-nvim.git nvim/site/pack/paqs/start/paq-nvim
 
-    # Windows
-    git clone https://github.com/savq/paq-nvim.git %LOCALAPPDATA%\nvim-data\site\pack\paqs\start\paq-nvim
+   # Windows
+   cd /d %USERPROFILE%\AppData\Local
+   git clone https://github.com/savq/paq-nvim.git nvim-data\site\pack\paqs\start\paq-nvim
+   ```
 
-### Install plugins with Paq
+2. Install plugins with Paq:
 
-    :PaqSync
+   ```
+   :PaqSync
+   ```
 
-### Update remote plugins (for Semshi)
+### Create a Conda Environment for Python Integration
 
-    :UpdateRemotePlugins
+```
+conda create -n pynvim pynvim
+```
+
+Run `:checkhealth` to see if it works correctly. See `:h provider-python` for more details.
