@@ -5,12 +5,6 @@ vim.keymap.set("", "<C-W><Space>", ":")
 vim.keymap.set("", "<PageDown>", "<C-D>")
 vim.keymap.set("", "<PageUp>", "<C-U>")
 
--- Map <C-E> to <C-P>
-vim.keymap.set("", "<C-E>", "<C-P>")
-vim.keymap.set("", "<C-P>", "<NOP>")
-vim.keymap.set("!", "<C-E>", "<C-P>")
-vim.keymap.set("!", "<C-P>", "<NOP>")
-
 -- NOP
 vim.keymap.set("", ",", "<NOP>")
 
