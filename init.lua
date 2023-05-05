@@ -136,6 +136,15 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 			vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = c.base0A, bg = c.base01 })
 			vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = c.base0C, bg = c.base01 })
 			vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = c.base0E, bg = c.base01 })
+			-- treesitter markdown highlights
+			local function set_markdown_highlights(name, color)
+				vim.api.nvim_set_hl(0, name .. ".markdown", color)
+				vim.api.nvim_set_hl(0, name .. ".markdown_inline", color)
+			end
+			set_markdown_highlights("@punctuation.delimiter", { fg = c.base03 })
+			set_markdown_highlights("@punctuation.special", { fg = c.base0C })
+			set_markdown_highlights("@text.literal", { fg = c.base0B })
+			set_markdown_highlights("@text.reference", { fg = c.base0B })
 		end
 	end,
 })
