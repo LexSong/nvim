@@ -120,6 +120,10 @@ require("nvim-treesitter.configs").setup({
 	auto_install = true,
 	highlight = {
 		enable = true,
+		disable = {
+			"git_rebase",
+			"gitcommit",
+		},
 		additional_vim_regex_highlighting = false,
 	},
 })
