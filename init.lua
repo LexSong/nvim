@@ -25,7 +25,7 @@ vim.keymap.set("t", "<C-W>", "<C-\\><C-N><C-W>", { remap = true })
 
 -- Options
 vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.completeslash = "slash"
 vim.opt.fileformats = { "unix", "dos" }
 vim.opt.ignorecase = true
