@@ -51,11 +51,11 @@ end
 
 -- Plugins
 require("paq")({
-	"RRethy/nvim-base16",
 	"jose-elias-alvarez/null-ls.nvim",
 	"neovim/nvim-lspconfig",
 	"nvim-lua/plenary.nvim",
 	"nvim-lualine/lualine.nvim",
+	"RRethy/nvim-base16",
 	"savq/paq-nvim",
 	"tpope/vim-commentary",
 	{
