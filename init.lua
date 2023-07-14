@@ -104,16 +104,12 @@ require("lualine").setup({
 -- treesitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
-		"c",
 		"json",
 		"lua",
 		"markdown",
 		"markdown_inline",
 		"python",
-		"query",
 		"toml",
-		"vim",
-		"vimdoc",
 		"yaml",
 	},
 	sync_install = true,
