@@ -123,6 +123,7 @@ require("nvim-treesitter.configs").setup({
 		disable = {
 			"git_rebase",
 			"gitcommit",
+			"vimdoc",
 		},
 		additional_vim_regex_highlighting = false,
 	},
