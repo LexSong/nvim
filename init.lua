@@ -58,7 +58,7 @@ require("paq")({
 	"RRethy/nvim-base16",
 	"savq/paq-nvim",
 	"tpope/vim-commentary",
-	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 })
 
 -- null-ls.nvim
