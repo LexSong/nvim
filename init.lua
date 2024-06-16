@@ -64,7 +64,7 @@ require("paq")({
 -- null-ls.nvim
 require("null-ls").setup({
 	sources = {
-		require("null-ls").builtins.diagnostics.flake8,
+		require("null-ls").builtins.diagnostics.flake8.with({ extra_args = { "--extend-ignore=E203,E501" } }),
 		require("null-ls").builtins.diagnostics.yamllint,
 		require("null-ls").builtins.formatting.black,
 		require("null-ls").builtins.formatting.prettier,
