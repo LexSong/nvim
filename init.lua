@@ -44,6 +44,10 @@ vim.opt.tabstop = 4
 -- Diagnostic virtual text
 vim.diagnostic.config({ virtual_text = { spacing = 1, prefix = "█" } })
 
+-- Add :EditCaptions
+local edit_captions = require("edit_captions")
+vim.api.nvim_create_user_command("EditCaptions", edit_captions, { nargs = "?", complete = "dir" })
+
 -- Plugins
 require("paq")({
 	"mfussenegger/nvim-lint",
