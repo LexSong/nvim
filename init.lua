@@ -65,7 +65,12 @@ require("paq")({
 require("null-ls").setup({
 	sources = {
 		require("null-ls").builtins.diagnostics.flake8.with({ extra_args = { "--extend-ignore=E203,E501" } }),
-		require("null-ls").builtins.diagnostics.yamllint,
+		require("null-ls").builtins.diagnostics.yamllint.with({
+			extra_args = {
+				"-d",
+				"{ extends: default, rules: { braces: disable, document-start: disable, line-length: disable } }",
+			},
+		}),
 		require("null-ls").builtins.formatting.black,
 		require("null-ls").builtins.formatting.prettier,
 		require("null-ls").builtins.formatting.reorder_python_imports.with({
