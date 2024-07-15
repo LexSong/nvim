@@ -49,6 +49,10 @@ if vim.fn.has("win32") then
 	vim.api.nvim_set_var("python3_host_prog", "C:/Users/LexSong/miniforge3/envs/pynvim/python.exe")
 end
 
+-- Add :EditCaptions
+local edit_captions = require("edit_captions")
+vim.api.nvim_create_user_command("EditCaptions", edit_captions, { nargs = "?", complete = "dir" })
+
 -- Plugins
 require("paq")({
 	"jose-elias-alvarez/null-ls.nvim",
