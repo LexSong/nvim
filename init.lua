@@ -57,7 +57,6 @@ require("paq")({
 	"nvim-lualine/lualine.nvim",
 	"RRethy/nvim-base16",
 	"savq/paq-nvim",
-	"tpope/vim-commentary",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 })
 
