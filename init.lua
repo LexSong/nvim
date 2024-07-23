@@ -55,8 +55,33 @@ require("paq")({
 	"nvim-lualine/lualine.nvim",
 	"RRethy/nvim-base16",
 	"savq/paq-nvim",
+	"stevearc/conform.nvim",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 })
+
+-- conform.nvim
+require("conform").setup({
+	formatters_by_ft = {
+		css = { "prettier" },
+		graphql = { "prettier" },
+		html = { "prettier" },
+		javascript = { "prettier" },
+		json = { "prettier" },
+		lua = { "stylua" },
+		markdown = { "prettier" },
+		python = { "black", "reorder-python-imports" },
+		toml = { "taplo" },
+		typescript = { "prettier" },
+		xml = { "prettier" },
+		yaml = { "prettier" },
+	},
+	formatters = {
+		black = { prepend_args = { "-l", "100" } },
+		["reorder-python-imports"] = { prepend_args = { "--application-directories=.:src" } },
+	},
+})
+
+vim.keymap.set("", "0", require("conform").format, { buffer = buffer })
 
 -- nvim-lspconfig
 require("lspconfig").pylsp.setup({
