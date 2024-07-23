@@ -101,16 +101,6 @@ require("lspconfig").pylsp.setup({
 	end,
 })
 
--- lualine.nvim
-require("lualine").setup({
-	options = {
-		icons_enabled = false,
-		theme = "base16",
-		component_separators = { left = "|", right = "|" },
-		section_separators = { left = "", right = "" },
-	},
-})
-
 -- treesitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
@@ -136,6 +126,16 @@ require("nvim-treesitter.configs").setup({
 	indent = {
 		enable = true,
 		disable = { "yaml" },
+	},
+})
+
+-- lualine.nvim
+require("lualine").setup({
+	options = {
+		icons_enabled = false,
+		theme = "base16",
+		component_separators = { left = "|", right = "|" },
+		section_separators = { left = "", right = "" },
 	},
 })
 
