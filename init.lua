@@ -51,36 +51,11 @@ end
 
 -- Plugins
 require("paq")({
-	"jose-elias-alvarez/null-ls.nvim",
 	"neovim/nvim-lspconfig",
-	"nvim-lua/plenary.nvim",
 	"nvim-lualine/lualine.nvim",
 	"RRethy/nvim-base16",
 	"savq/paq-nvim",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-})
-
--- null-ls.nvim
-require("null-ls").setup({
-	sources = {
-		require("null-ls").builtins.diagnostics.flake8.with({ extra_args = { "--extend-ignore=E203,E501" } }),
-		require("null-ls").builtins.diagnostics.yamllint.with({
-			extra_args = {
-				"-d",
-				"{ extends: default, rules: { braces: disable, document-start: disable, line-length: disable } }",
-			},
-		}),
-		require("null-ls").builtins.formatting.black,
-		require("null-ls").builtins.formatting.prettier,
-		require("null-ls").builtins.formatting.reorder_python_imports.with({
-			extra_args = { "--application-directories=.:src" },
-		}),
-		require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.formatting.taplo,
-	},
-	on_attach = function(client, buffer)
-		vim.keymap.set("", "0", vim.lsp.buf.format, { buffer = buffer })
-	end,
 })
 
 -- nvim-lspconfig
