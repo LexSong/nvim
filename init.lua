@@ -88,9 +88,7 @@ require("lspconfig").pylsp.setup({
 	settings = {
 		pylsp = {
 			plugins = {
-				jedi = {
-					environment = vim.fn.executable("python") == 1 and vim.fn.exepath("python") or nil,
-				},
+				jedi = { environment = vim.fn.executable("python") == 1 and vim.fn.exepath("python") or nil },
 			},
 		},
 	},
