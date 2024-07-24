@@ -55,6 +55,7 @@ vim.api.nvim_create_user_command("EditCaptions", edit_captions, { nargs = "?", c
 
 -- Plugins
 require("paq")({
+	"mfussenegger/nvim-lint",
 	"neovim/nvim-lspconfig",
 	"nvim-lualine/lualine.nvim",
 	"RRethy/nvim-base16",
@@ -86,6 +87,17 @@ require("conform").setup({
 })
 
 vim.keymap.set("", "0", require("conform").format, { buffer = buffer })
+
+-- nvim-lint
+require("lint").linters_by_ft = {
+	python = { "ruff" },
+}
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged" }, {
+	callback = function()
+		require("lint").try_lint()
+	end,
+})
 
 -- nvim-lspconfig
 require("lspconfig").pylsp.setup({
