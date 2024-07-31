@@ -96,14 +96,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextCh
 })
 
 -- nvim-lspconfig
-require("lspconfig").pylsp.setup({
-	settings = {
-		pylsp = {
-			plugins = {
-				jedi = { environment = vim.fn.executable("python") == 1 and vim.fn.exepath("python") or nil },
-			},
-		},
-	},
+require("lspconfig").pyright.setup({
 	on_attach = function(client, buffer)
 		vim.keymap.set("", ",", vim.lsp.buf.hover, { buffer = buffer })
 	end,
