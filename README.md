@@ -39,11 +39,3 @@
    ```
    :PaqSync
    ```
-
-### Create a Conda Environment for Python Integration
-
-```
-conda create -n pynvim pynvim
-```
-
-Run `:checkhealth` to see if it works correctly. See `:h provider-python` for more details.
