@@ -44,11 +44,6 @@ vim.opt.tabstop = 4
 -- Diagnostic virtual text
 vim.diagnostic.config({ virtual_text = { spacing = 1, prefix = "█" } })
 
--- Set the python3 executable
-if vim.fn.has("win32") then
-	vim.api.nvim_set_var("python3_host_prog", "C:/Users/LexSong/miniforge3/envs/pynvim/python.exe")
-end
-
 -- Plugins
 require("paq")({
 	"mfussenegger/nvim-lint",
