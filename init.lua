@@ -108,15 +108,15 @@ require("nvim-treesitter.configs").setup({
 		"toml",
 		"yaml",
 	},
+	ignore_install = {
+		"git_rebase",
+		"gitcommit",
+		"vimdoc",
+	},
 	sync_install = true,
 	auto_install = true,
 	highlight = {
 		enable = true,
-		disable = {
-			"git_rebase",
-			"gitcommit",
-			"vimdoc",
-		},
 		additional_vim_regex_highlighting = false,
 	},
 	indent = {
