@@ -73,6 +73,7 @@ require("conform").setup({
 	},
 	formatters = {
 		black = { prepend_args = { "-l", "100" } },
+		prettier = { prepend_args = { "--ignore-path", "NUL" } },
 		["reorder-python-imports"] = { prepend_args = { "--application-directories=.:src" } },
 	},
 })
