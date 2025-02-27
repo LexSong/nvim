@@ -65,15 +65,15 @@ require("conform").setup({
 		json = { "prettier" },
 		lua = { "stylua" },
 		markdown = { "prettier" },
-		python = { "black", "reorder-python-imports" },
+		python = { "reorder-python-imports", "ruff_format" },
 		toml = { "taplo" },
 		typescript = { "prettier" },
 		xml = { "prettier" },
 		yaml = { "prettier" },
 	},
 	formatters = {
-		black = { prepend_args = { "-l", "100" } },
 		["reorder-python-imports"] = { prepend_args = { "--application-directories=.:src" } },
+		["ruff_format"] = { prepend_args = { "--line-length", "100" } },
 	},
 })
 
