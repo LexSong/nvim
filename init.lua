@@ -72,6 +72,7 @@ require("conform").setup({
 		yaml = { "prettier" },
 	},
 	formatters = {
+		prettier = { prepend_args = { "--ignore-path", "NUL" } },
 		["reorder-python-imports"] = { prepend_args = { "--application-directories=.:src" } },
 		["ruff_format"] = { prepend_args = { "--line-length", "100" } },
 	},
