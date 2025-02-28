@@ -91,9 +91,9 @@ require("conform").setup({
 		prettier = { prepend_args = { "--ignore-path", "NUL" } },
 		["reorder-python-imports"] = { prepend_args = { "--application-directories=.:src" } },
 		ruff_format = {
-			args = insert_after(ruff_format_default.args, "format", "--line-length", "100"),
+			args = insert_after(ruff_format_default.args, "format", "--line-length", "120"),
 			range_args = function(_, ctx)
-				return insert_after(ruff_format_default.range_args(_, ctx), "format", "--line-length", "100")
+				return insert_after(ruff_format_default.range_args(_, ctx), "format", "--line-length", "120")
 			end,
 		},
 	},
