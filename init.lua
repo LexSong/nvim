@@ -55,7 +55,23 @@ require("paq")({
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 })
 
+-- Define a function to insert arguments after a specific argument
+local function insert_after(args, target, ...)
+	local new_args = vim.deepcopy(args)
+	for i, arg in ipairs(new_args) do
+		if arg == target then
+			for j, new_arg in ipairs({ ... }) do
+				table.insert(new_args, i + j, new_arg)
+			end
+			break
+		end
+	end
+	return new_args
+end
+
 -- conform.nvim
+local ruff_format_default = require("conform.formatters.ruff_format")
+
 require("conform").setup({
 	formatters_by_ft = {
 		css = { "prettier" },
@@ -74,7 +90,12 @@ require("conform").setup({
 	formatters = {
 		prettier = { prepend_args = { "--ignore-path", "NUL" } },
 		["reorder-python-imports"] = { prepend_args = { "--application-directories=.:src" } },
-		["ruff_format"] = { prepend_args = { "--line-length", "100" } },
+		ruff_format = {
+			args = insert_after(ruff_format_default.args, "format", "--line-length", "100"),
+			range_args = function(_, ctx)
+				return insert_after(ruff_format_default.range_args(_, ctx), "format", "--line-length", "100")
+			end,
+		},
 	},
 })
 
