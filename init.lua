@@ -114,6 +114,26 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextCh
 
 -- nvim-lspconfig
 require("lspconfig").pyright.setup({
+	on_init = function(client)
+		local root_dir = vim.fn.getcwd()
+		if client and client.config and client.config.root_dir then
+			root_dir = client.config.root_dir
+		end
+
+		local python_exes = {
+			"/.pixi/envs/default/python.exe",
+			"/.pixi/envs/default/bin/python",
+		}
+
+		for _, python_exe in ipairs(python_exes) do
+			python_exe = root_dir .. python_exe
+			if vim.uv.fs_stat(python_exe) then
+				client.config.settings.python.pythonPath = python_exe
+				client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+				break
+			end
+		end
+	end,
 	on_attach = function(client, buffer)
 		vim.keymap.set("", ",", vim.lsp.buf.hover, { buffer = buffer })
 	end,
