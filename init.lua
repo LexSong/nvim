@@ -123,6 +123,8 @@ require("lspconfig").pyright.setup({
 		local python_exes = {
 			"/.pixi/envs/default/python.exe",
 			"/.pixi/envs/default/bin/python",
+			"/.venv/Scripts/python.exe",
+			"/.venv/Scripts/python",
 		}
 
 		for _, python_exe in ipairs(python_exes) do
