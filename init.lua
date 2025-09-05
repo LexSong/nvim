@@ -29,8 +29,10 @@ vim.keymap.set("t", "<C-W>", "<C-\\><C-N><C-W>", { remap = true })
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.completeslash = "slash"
+vim.opt.cursorline = true
 vim.opt.fileformats = { "unix", "dos" }
 vim.opt.ignorecase = true
+vim.opt.number = true
 vim.opt.signcolumn = "no"
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
@@ -188,6 +190,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		local loaded, base16 = pcall(require, "base16-colorscheme")
 		if loaded and base16.colors then
 			local c = base16.colors
+			-- line numbers
+			vim.api.nvim_set_hl(0, "LineNr", { fg = c.base01, bg = c.base00 })
+			vim.api.nvim_set_hl(0, "CursorLine", { bg = c.base00 })
+			vim.api.nvim_set_hl(0, "CursorLineNr", { fg = c.base03, bg = c.base00 })
 			-- diagnostics
 			vim.api.nvim_set_hl(0, "DiagnosticError", { fg = c.base08, bg = c.base01 })
 			vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = c.base0A, bg = c.base01 })
