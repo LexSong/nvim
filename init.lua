@@ -44,7 +44,7 @@ vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 
 -- Diagnostic virtual text
-vim.diagnostic.config({ virtual_text = { spacing = 1, prefix = "█" } })
+vim.diagnostic.config({ severity_sort = true, virtual_text = { spacing = 1, prefix = "█" } })
 
 -- Plugins
 require("paq")({
