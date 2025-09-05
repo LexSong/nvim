@@ -11,6 +11,8 @@ vim.keymap.set("", "K", "<C-U>")
 vim.keymap.set("", "L", "$")
 vim.keymap.set("", "M", "J")
 
+vim.keymap.set("", "<C-b>", "<C-v>", { desc = "Enter Visual Block Mode" })
+
 -- NOP
 vim.keymap.set("", "$", "<NOP>")
 vim.keymap.set("", ",", "<NOP>")
