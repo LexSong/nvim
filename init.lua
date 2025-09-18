@@ -25,6 +25,13 @@ vim.keymap.set("", "<C-Z>", "<NOP>")
 -- Use Ctrl-C or <Esc> to cancel the window command and stay in normal mode.
 vim.keymap.set("t", "<C-W>", "<C-\\><C-N><C-W>", { remap = true })
 
+-- LSP hover
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		vim.keymap.set("", ",", vim.lsp.buf.hover, { buffer = args.buf })
+	end,
+})
+
 -- Options
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
@@ -51,7 +58,6 @@ vim.diagnostic.config({ severity_sort = true, virtual_text = { spacing = 1, pref
 -- Plugins
 require("paq")({
 	"mfussenegger/nvim-lint",
-	"neovim/nvim-lspconfig",
 	"nvim-lualine/lualine.nvim",
 	"RRethy/nvim-base16",
 	"savq/paq-nvim",
@@ -116,34 +122,55 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextCh
 	end,
 })
 
--- nvim-lspconfig
-require("lspconfig").pyright.setup({
-	on_init = function(client)
+-- LSP config
+vim.lsp.config.pyright = {
+	cmd = { "pyright-langserver", "--stdio" },
+	filetypes = { "python" },
+	root_markers = {
+		"pyproject.toml",
+		"setup.py",
+		"setup.cfg",
+		"pixi.toml",
+		"requirements.txt",
+		"Pipfile",
+		"pyrightconfig.json",
+		".git",
+	},
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+				diagnosticMode = "openFilesOnly",
+			},
+		},
+	},
+
+	before_init = function(_, config)
 		local root_dir = vim.fn.getcwd()
-		if client and client.config and client.config.root_dir then
-			root_dir = client.config.root_dir
+		if config.root_dir then
+			root_dir = config.root_dir
 		end
 
 		local python_exes = {
+			-- pixi
 			"/.pixi/envs/default/python.exe",
 			"/.pixi/envs/default/bin/python",
+			-- uv
 			"/.venv/Scripts/python.exe",
-			"/.venv/Scripts/python",
+			"/.venv/bin/python",
 		}
 
 		for _, python_exe in ipairs(python_exes) do
 			python_exe = root_dir .. python_exe
 			if vim.uv.fs_stat(python_exe) then
-				client.config.settings.python.pythonPath = python_exe
-				client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+				config.settings.python.pythonPath = python_exe
 				break
 			end
 		end
 	end,
-	on_attach = function(client, buffer)
-		vim.keymap.set("", ",", vim.lsp.buf.hover, { buffer = buffer })
-	end,
-})
+}
+vim.lsp.enable("pyright")
 
 -- treesitter
 require("nvim-treesitter.configs").setup({
