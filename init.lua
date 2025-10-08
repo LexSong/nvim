@@ -123,6 +123,16 @@ vim.lsp.config.pyright = {
 			},
 		},
 	},
+	-- Disable hints
+	capabilities = {
+		textDocument = {
+			publishDiagnostics = {
+				tagSupport = {
+					valueSet = { 2 },
+				},
+			},
+		},
+	},
 
 	before_init = function(_, config)
 		local root_dir = vim.fn.getcwd()
