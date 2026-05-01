@@ -59,10 +59,10 @@ vim.diagnostic.config({ severity_sort = true, virtual_text = { spacing = 1, pref
 require("paq")({
 	"mfussenegger/nvim-lint",
 	"nvim-lualine/lualine.nvim",
+	"romus204/tree-sitter-manager.nvim",
 	"RRethy/nvim-base16",
 	"savq/paq-nvim",
 	"stevearc/conform.nvim",
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 })
 
 -- conform.nvim
@@ -161,8 +161,9 @@ vim.lsp.config.pyright = {
 vim.lsp.enable("pyright")
 
 -- treesitter
-require("nvim-treesitter.configs").setup({
+require("tree-sitter-manager").setup({
 	ensure_installed = {
+		"csv",
 		"json",
 		"lua",
 		"markdown",
@@ -171,21 +172,7 @@ require("nvim-treesitter.configs").setup({
 		"toml",
 		"yaml",
 	},
-	ignore_install = {
-		"git_rebase",
-		"gitcommit",
-		"vimdoc",
-	},
-	sync_install = true,
-	auto_install = true,
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
-	indent = {
-		enable = true,
-		disable = { "yaml" },
-	},
+	auto_install = false,
 })
 
 -- lualine.nvim
