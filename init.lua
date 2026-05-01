@@ -56,13 +56,12 @@ vim.opt.tabstop = 4
 vim.diagnostic.config({ severity_sort = true, virtual_text = { spacing = 1, prefix = "█" } })
 
 -- Plugins
-require("paq")({
-	"mfussenegger/nvim-lint",
-	"nvim-lualine/lualine.nvim",
-	"romus204/tree-sitter-manager.nvim",
-	"RRethy/nvim-base16",
-	"savq/paq-nvim",
-	"stevearc/conform.nvim",
+vim.pack.add({
+	"https://github.com/RRethy/nvim-base16",
+	"https://github.com/mfussenegger/nvim-lint",
+	"https://github.com/nvim-lualine/lualine.nvim",
+	"https://github.com/romus204/tree-sitter-manager.nvim",
+	"https://github.com/stevearc/conform.nvim",
 })
 
 -- conform.nvim
