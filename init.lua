@@ -78,11 +78,19 @@ vim.diagnostic.config({ severity_sort = true, virtual_text = { spacing = 1, pref
 -- Plugins
 vim.pack.add({
 	"https://github.com/RRethy/nvim-base16",
+	"https://github.com/Saghen/blink.cmp",
+	"https://github.com/Saghen/blink.lib",
 	"https://github.com/Vimjas/vim-python-pep8-indent",
 	"https://github.com/mfussenegger/nvim-lint",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/romus204/tree-sitter-manager.nvim",
 	"https://github.com/stevearc/conform.nvim",
+})
+
+-- blink.cmp
+require("blink.cmp").build():pwait()
+require("blink.cmp").setup({
+	keymap = { preset = "super-tab" },
 })
 
 -- conform.nvim
@@ -121,6 +129,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextCh
 })
 
 -- LSP config
+vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
+
 vim.lsp.config.pyright = {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
