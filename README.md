@@ -18,24 +18,9 @@
    git clone https://github.com/LexSong/nvim.git nvim
    ```
 
-### Install Paq and Plugins
+### Tree-sitter Requirements
 
-1. Install Paq:
+To build and update syntax parsers automatically, you also need:
 
-   See https://github.com/savq/paq-nvim#installation.
-
-   ```
-   # Unix
-   cd ~/.local/share
-   git clone https://github.com/savq/paq-nvim.git nvim/site/pack/paqs/start/paq-nvim
-
-   # Windows
-   cd /d %USERPROFILE%\AppData\Local
-   git clone https://github.com/savq/paq-nvim.git nvim-data\site\pack\paqs\start\paq-nvim
-   ```
-
-2. Install plugins with Paq:
-
-   ```
-   :PaqSync
-   ```
+- `gcc`
+- `tree-sitter-cli`
