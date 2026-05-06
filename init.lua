@@ -35,7 +35,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Options
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
-vim.opt.completeslash = "slash"
 vim.opt.cursorline = true
 vim.opt.fileformats = { "unix", "dos" }
 vim.opt.ignorecase = true
@@ -45,6 +44,9 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.virtualedit = "block"
+if vim.fn.has("win32") == 1 then
+	vim.opt.completeslash = "slash"
+end
 
 -- Tab options
 vim.opt.expandtab = true
