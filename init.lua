@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Options
+vim.opt.autoread = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.cursorline = true
@@ -53,6 +54,13 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
+
+-- Autoread doesn't trigger without checktime; call it on focus/idle
+vim.api.nvim_create_autocmd({ "FocusGained", "CursorHold", "CursorHoldI" }, {
+	callback = function()
+		vim.cmd("checktime")
+	end,
+})
 
 -- Diagnostic virtual text
 vim.diagnostic.config({ severity_sort = true, virtual_text = { spacing = 1, prefix = "█" } })
