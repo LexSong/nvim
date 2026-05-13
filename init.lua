@@ -68,6 +68,7 @@ vim.diagnostic.config({ severity_sort = true, virtual_text = { spacing = 1, pref
 -- Plugins
 vim.pack.add({
 	"https://github.com/RRethy/nvim-base16",
+	"https://github.com/Vimjas/vim-python-pep8-indent",
 	"https://github.com/mfussenegger/nvim-lint",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/romus204/tree-sitter-manager.nvim",
