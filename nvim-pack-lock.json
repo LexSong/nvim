@@ -9,7 +9,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "nvim-base16": {
-      "rev": "6b4f4a07b8b0c23a5cd3740631d96a97d7ccec09",
+      "rev": "23e5128eb5f629c29532c24a1e733cbe019f05bb",
       "src": "https://github.com/RRethy/nvim-base16"
     },
     "nvim-lint": {
@@ -17,7 +17,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "33a94d022e3a5a500d878b784ba7fec61559c70a",
+      "rev": "59e1ba49e33e1b73bef655fd34b5e65e1465053f",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     }
   }
