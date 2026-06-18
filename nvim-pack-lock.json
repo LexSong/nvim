@@ -9,7 +9,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "nvim-base16": {
-      "rev": "23e5128eb5f629c29532c24a1e733cbe019f05bb",
+      "rev": "ba21047fc55718bf30f8400f150c8519536ef7c8",
       "src": "https://github.com/RRethy/nvim-base16"
     },
     "nvim-lint": {
