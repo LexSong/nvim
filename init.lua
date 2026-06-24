@@ -90,7 +90,29 @@ vim.pack.add({
 -- blink.cmp
 require("blink.cmp").build():pwait()
 require("blink.cmp").setup({
-	keymap = { preset = "super-tab" },
+	keymap = {
+		preset = "super-tab",
+		["<Tab>"] = {
+			-- Default super-tab behavior: accept the menu / jump in a snippet.
+			function(cmp)
+				if cmp.snippet_active() then
+					return cmp.accept()
+				else
+					return cmp.select_and_accept()
+				end
+			end,
+			"snippet_forward",
+			-- Extension: open the menu when there's something before the cursor.
+			function(cmp)
+				local col = vim.api.nvim_win_get_cursor(0)[2]
+				if not vim.api.nvim_get_current_line():sub(1, col):match("^%s*$") then
+					return cmp.show()
+				end
+			end,
+			-- Nothing matched (only whitespace before cursor) -> indent.
+			"fallback",
+		},
+	},
 })
 
 -- conform.nvim
