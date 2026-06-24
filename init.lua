@@ -13,6 +13,16 @@ vim.keymap.set("", "M", "J")
 
 vim.keymap.set("", "<C-b>", "<C-v>", { desc = "Enter Visual Block Mode" })
 
+-- Shift-Tab jumps backward in a snippet, otherwise unindents. Extends the
+-- default <S-Tab> mapping, which falls back to a literal (useless) Shift-Tab.
+vim.keymap.set("i", "<S-Tab>", function()
+	if vim.snippet.active({ direction = -1 }) then
+		return "<Cmd>lua vim.snippet.jump(-1)<CR>"
+	else
+		return "<C-d>"
+	end
+end, { desc = "Snippet jump backward if active, otherwise unindent", expr = true, silent = true })
+
 -- NOP
 vim.keymap.set("", "$", "<NOP>")
 vim.keymap.set("", ",", "<NOP>")
