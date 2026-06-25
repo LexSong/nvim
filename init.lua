@@ -154,6 +154,8 @@ vim.lsp.config.pyright = {
 		},
 	},
 
+	-- Resolve the Python interpreter for pyright.
+	-- Prefer the project-root venv; otherwise fall back to PATH.
 	before_init = function(_, config)
 		local root_dir = vim.fn.getcwd()
 		if config.root_dir then
