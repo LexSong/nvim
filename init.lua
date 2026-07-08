@@ -83,6 +83,7 @@ vim.pack.add({
 	"https://github.com/Vimjas/vim-python-pep8-indent",
 	"https://github.com/mfussenegger/nvim-lint",
 	"https://github.com/nvim-lualine/lualine.nvim",
+	"https://github.com/nvim-mini/mini.icons",
 	"https://github.com/romus204/tree-sitter-manager.nvim",
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/stevearc/oil.nvim",
@@ -215,8 +216,13 @@ vim.lsp.config.pyright = {
 }
 vim.lsp.enable("pyright")
 
+-- mini.icons
+require("mini.icons").setup()
+
 -- oil.nvim
-require("oil").setup()
+require("oil").setup({
+	columns = { "icon" },
+})
 
 -- treesitter
 require("tree-sitter-manager").setup({
