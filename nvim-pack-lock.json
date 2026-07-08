@@ -16,6 +16,10 @@
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "mini.icons": {
+      "rev": "98faae31e9be1cc054ae63485e58ceb185efcad0",
+      "src": "https://github.com/nvim-mini/mini.icons"
+    },
     "nvim-base16": {
       "rev": "012273e4bbf3e143224a272ad2efd10b69a000ba",
       "src": "https://github.com/RRethy/nvim-base16"
