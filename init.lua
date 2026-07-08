@@ -266,6 +266,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 			vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = c.base0C, bg = c.base01 })
 			vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = c.base0E, bg = c.base01 })
 			vim.api.nvim_set_hl(0, "DiagnosticOk", { fg = c.base0B, bg = c.base01 })
+			-- mini.icons
+			vim.api.nvim_set_hl(0, "MiniIconsRed", { fg = c.base08 })
+			vim.api.nvim_set_hl(0, "MiniIconsOrange", { fg = c.base09 })
+			vim.api.nvim_set_hl(0, "MiniIconsYellow", { fg = c.base0A })
+			vim.api.nvim_set_hl(0, "MiniIconsGreen", { fg = c.base0B })
+			vim.api.nvim_set_hl(0, "MiniIconsCyan", { fg = c.base0C })
+			vim.api.nvim_set_hl(0, "MiniIconsAzure", { fg = c.base0D })
+			vim.api.nvim_set_hl(0, "MiniIconsBlue", { fg = c.base0D })
+			vim.api.nvim_set_hl(0, "MiniIconsPurple", { fg = c.base0E })
+			vim.api.nvim_set_hl(0, "MiniIconsGrey", { fg = c.base04 })
 			-- treesitter markdown highlights
 			local function set_markdown_highlights(name, color)
 				vim.api.nvim_set_hl(0, name .. ".markdown", color)
