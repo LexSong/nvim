@@ -85,6 +85,7 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/romus204/tree-sitter-manager.nvim",
 	"https://github.com/stevearc/conform.nvim",
+	"https://github.com/stevearc/oil.nvim",
 })
 
 -- blink.cmp
@@ -213,6 +214,9 @@ vim.lsp.config.pyright = {
 	end,
 }
 vim.lsp.enable("pyright")
+
+-- oil.nvim
+require("oil").setup()
 
 -- treesitter
 require("tree-sitter-manager").setup({
