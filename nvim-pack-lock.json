@@ -21,7 +21,7 @@
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "nvim-base16": {
-      "rev": "fd128e380624c34f12a201690944bf657f861361",
+      "rev": "898823add4424b5e857ba094e6c50e1b1d9c7962",
       "src": "https://github.com/RRethy/nvim-base16"
     },
     "nvim-lint": {
