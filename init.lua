@@ -127,7 +127,7 @@ require("conform").setup({
 		json = { "prettier" },
 		lua = { "stylua" },
 		markdown = { "prettier" },
-		python = { "reorder-python-imports", "ruff_format" },
+		python = { "ruff_format", "ruff_organize_imports" },
 		toml = { "taplo" },
 		typescript = { "prettier" },
 		xml = { "prettier" },
@@ -135,7 +135,6 @@ require("conform").setup({
 	},
 	formatters = {
 		prettier = { prepend_args = { "--ignore-path", "NUL" } },
-		["reorder-python-imports"] = { prepend_args = { "--application-directories=.:src" } },
 	},
 })
 
