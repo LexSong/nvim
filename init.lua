@@ -139,7 +139,7 @@ require("conform").setup({
 	},
 })
 
-vim.keymap.set("", "0", require("conform").format, { buffer = buffer })
+vim.keymap.set("", "0", require("conform").format)
 
 -- nvim-lint
 require("lint").linters_by_ft = {
