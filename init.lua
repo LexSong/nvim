@@ -223,6 +223,8 @@ require("oil").setup({
 	columns = { "icon" },
 })
 
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory in oil" })
+
 -- treesitter
 require("tree-sitter-manager").setup({
 	ensure_installed = {
