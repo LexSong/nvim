@@ -83,6 +83,7 @@ vim.pack.add({
 	"https://github.com/Vimjas/vim-python-pep8-indent",
 	"https://github.com/mfussenegger/nvim-lint",
 	"https://github.com/nvim-lualine/lualine.nvim",
+	"https://github.com/nvim-mini/mini.diff",
 	"https://github.com/nvim-mini/mini.icons",
 	"https://github.com/romus204/tree-sitter-manager.nvim",
 	"https://github.com/stevearc/conform.nvim",
@@ -215,6 +216,9 @@ vim.lsp.config.pyright = {
 }
 vim.lsp.enable("pyright")
 
+-- mini.diff
+require("mini.diff").setup()
+
 -- mini.icons
 require("mini.icons").setup()
 
@@ -247,6 +251,26 @@ require("lualine").setup({
 		theme = "base16",
 		component_separators = { left = "|", right = "|" },
 		section_separators = { left = "", right = "" },
+	},
+	sections = {
+		lualine_b = {
+			"branch",
+			{
+				-- lualine's own diff source runs `git diff` on every save. On
+				-- Windows, `:wq` can exit before that child is resumed, which
+				-- leaves it suspended and holds the terminal tab open. mini.diff
+				-- runs git only on buffer open and when .git/index changes.
+				"diff",
+				source = function()
+					local summary = vim.b.minidiff_summary
+					if summary == nil then
+						return nil
+					end
+					return { added = summary.add, modified = summary.change, removed = summary.delete }
+				end,
+			},
+			"diagnostics",
+		},
 	},
 })
 
