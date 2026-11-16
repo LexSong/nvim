@@ -91,7 +91,6 @@ vim.pack.add({
 })
 
 -- blink.cmp
-require("blink.cmp").build():pwait()
 require("blink.cmp").setup({
 	keymap = {
 		preset = "super-tab",
