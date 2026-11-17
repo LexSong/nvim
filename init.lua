@@ -134,7 +134,7 @@ require("conform").setup({
 		yaml = { "prettier" },
 	},
 	formatters = {
-		prettier = { prepend_args = { "--ignore-path", "NUL" } },
+		prettier = { prepend_args = { "--ignore-path", "NUL", "--prose-wrap", "never" } },
 	},
 })
 
